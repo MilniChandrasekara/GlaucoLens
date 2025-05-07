@@ -1,0 +1,12 @@
+backend/uploads/DRISHTI-GS1-train-40.png
+backend/uploads/CRFO-v4-17.png
+.idea/GlaucoLens.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/.gitignore
+.idea/inspectionProfiles/profiles_settings.xml
+frontend/README.md
+frontend/public/logo192.png
+frontend/public/logo512.png
+frontend/src/logo.svg
+backend/model/glaucoma_detection_model.h5
