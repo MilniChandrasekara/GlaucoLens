@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import tensorflow as tf
 from werkzeug.utils import secure_filename
-import google.generativeai as genai
+import openai
 
 app = Flask(__name__)
 CORS(app)
@@ -92,11 +92,7 @@ def predict_glaucoma(image_path):
         print(f"Error during prediction: {str(e)}")
         return {"error": str(e)}
 
-# Configure the Gemini API key
-genai.configure(api_key="AIzaSyB2uuD4ibj4isIoA_QkdsyIKdccNhAP05g")
-
-# Initialize the generative model
-chatbot_model = genai.GenerativeModel("gemini-1.5-pro")
+openai.api_key = "kLjnNcZdeHvGdrXkIPAQnBBUZ9Nserr0am9uCKC3-IOO_HySglTD2XP-kywkamPpU6GBytrcLiT3BlbkFJr5ElRJdtPMDUsnOoaslPI7aSwsG-GECfbJk0hT60615aE-QzZOi-fOewO2nZ-w58Ki-8UcL44A" 
 
 @app.route('/')
 def index():
@@ -129,6 +125,7 @@ def predict():
 
     return jsonify({"error": "File type not allowed"}), 400
 
+""""
 @app.route('/models', methods=['GET'])
 def list_models():
     try:
@@ -137,21 +134,29 @@ def list_models():
         return jsonify({"models": model_names})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
+"""
 @app.route('/generate', methods=['POST'])
 def generate_text():
     data = request.json
     prompt = data.get("prompt", "")
-
     if not prompt:
         return jsonify({"error": "Prompt is required"}), 400
-
     try:
-        response = chatbot_model.generate_content(prompt)
-        return jsonify({"generated_text": response.text})
+        response = openai.chat.completions.create(
+            model="gpt-4",  # Or "gpt-3.5-turbo"
+            messages=[
+                {"role": "system", "content": "You are a helpful medical assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7
+        )
+        generated_text = response.choices[0].message.content
+        return jsonify({"generated_text": generated_text})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':
     app.run(debug=True, port=5002)  # Run on port 5002 as requested
+
+    
