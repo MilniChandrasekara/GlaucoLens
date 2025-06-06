@@ -1,24 +1,82 @@
-# GlaucoLens
+# 👁️ GlaucoLens
 
-**GlaucoLens** is a web-based glaucoma detection system that uses image processing and deep learning to analyze retinal (fundus) images. The application features a React.js frontend and a Python-based backend where the machine learning model is trained using Jupyter Notebook.
+**GlaucoLens** is a web-based glaucoma detection system that leverages image processing and deep learning to analyze retinal (fundus) images. The frontend is built using **React.js**, and the backend uses **Python** with a deep learning model trained in **Jupyter Notebook**.
 
-## 🧠 Overview
+---
 
-Glaucoma is a serious eye condition that can lead to vision loss if not detected early. GlaucoLens aims to assist healthcare professionals in identifying potential glaucoma cases from retinal images using advanced image processing techniques and machine learning.
+## 📌 Features
 
-## ✨ Features
+- Upload and analyze retinal images for glaucoma detection
+- Deep learning-based classification using TensorFlow/Keras
+- Image preprocessing with OpenCV
+- Frontend built in React.js
+- Backend API for prediction using Flask
+- Model training in Jupyter Notebook
 
-- Upload fundus images to detect signs of glaucoma.
-- Image preprocessing and analysis using OpenCV and deep learning.
-- React.js frontend for an interactive user experience.
-- Trained deep learning model built with TensorFlow/Keras in Python.
-- Jupyter Notebook used for training and evaluation of the model.
-- RESTful API backend (Flask or FastAPI) for prediction integration.
+---
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: React.js, HTML5, CSS3, JavaScript
-- **Backend**: Python, Flask (or FastAPI)
-- **Model Training**: Python, TensorFlow/Keras, OpenCV, Jupyter Notebook
-- **Others**: Git, GitHub, Axios (for frontend-backend communication)
+**Frontend:**
+- React.js
+- JavaScript
+- Axios
+- HTML/CSS
 
+**Backend:**
+- Python 3.8+
+- Flask
+- TensorFlow / Keras
+- OpenCV
+- NumPy
+- Pandas
+- Jupyter Notebook
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/MilniChandrasekara/GlaucoLens.git
+cd GlaucoLens
+```
+
+### 2️⃣ Backend Setup (Python)
+### Install Required Python Packages:
+
+```bash
+pip install flask
+pip install tensorflow
+pip install opencv-python
+pip install numpy
+pip install pandas
+```
+### Run the Backend Server:
+
+```bash
+
+cd backend
+python app.py
+```
+### 3️⃣ Frontend Setup (React.js)
+
+```bash
+cd frontend
+npm install
+npm start
+```
+### 4️⃣ Train the Model (Optional)
+
+```bash
+
+cd model_training
+jupyter notebook train_model.ipynb
+```
+### Make sure you have Jupyter installed:
+
+```bash
+
+pip install notebook
+```
